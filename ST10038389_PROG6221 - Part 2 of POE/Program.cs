@@ -13,21 +13,28 @@ namespace ST10038389_PROG6221___Part_2_of_POE
 
             while (running)
             {
-                Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Blue; //Added text color to the heading of the application.
-                Console.WriteLine("Welcome to the Recipe Application Menu!"); //Implemented a Menu Option.
+                Console.Clear(); //Clears the console's screen to start with a clean slate.
+                Console.ForegroundColor = ConsoleColor.Blue; //Sets the text Color  to the blue of the heading of the Recipe Application!
+                Console.WriteLine("Welcome to the Recipe Application Menu!"); //Displays the application heading.
 
-                Console.ResetColor();
+                Console.ResetColor(); //Resets the text color to the default version to avoid unwanted  color warnings.
                 Console.ForegroundColor = ConsoleColor.Magenta;
+                //Setting the menu option to magenta purple color.
+                //Making it stand out for the user's ease  and buttons are easier to allocate to.
 
-                Console.WriteLine("1. Add a New Recipe?"); //Option 1: Add a recipe!
-                Console.WriteLine("2. Display All Recipes!"); //Option 2: Showcase the completed recipes!
-                Console.WriteLine("3. Select a Scale for Recipe!"); //Option 3: Scale the Recipe!
-                Console.WriteLine("4. Remove all Recipes!"); //Option 4: Delete recipes!
-                Console.WriteLine("5. Quit Program!"); //Quit Application.
-
+                Console.WriteLine("1. Add a New Recipe?");
+                //Displays the Menu options 1 to 5.
+                //Option 1: Allows the user to add a new recipe to the application.
+                Console.WriteLine("2. Display All Recipes!"); 
+                //Option 2: Allows the user to view all the recipes collected from the application.
+                Console.WriteLine("3. Select a Scale for Recipe!"); 
+                //Allows the user to Choose a scaling factor from {0.5 to 2 to 3}.
+                Console.WriteLine("4. Remove all Recipes!"); 
+                //Allows the user to delete the recipe from the application.
+                Console.WriteLine("5. Quit Program!"); 
+                //Exit the program!
                 Console.ResetColor();
-                Console.Write("Please select an option: ");
+                Console.Write("Please select an option: "); 
                 string choice = Console.ReadLine();
 
                 try

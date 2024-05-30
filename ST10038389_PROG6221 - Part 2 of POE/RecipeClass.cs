@@ -6,7 +6,9 @@ namespace ST10038389_PROG6221___Part_2_of_POE
 {
     public class RecipeClass
     {
-        public string Name { get; set; } //Getters + Setters for collecting the name of the ingredient in application.
+        public string Name { get; set; } 
+        //Getters + Setters for collecting the ingredient's name in the application.
+        //It is used to identify the ingredients in the recipe!
 
         private List<IngredientClass> ingredients;
 
@@ -15,18 +17,18 @@ namespace ST10038389_PROG6221___Part_2_of_POE
         public delegate void CaloriesExceededEventHandler(object sender, EventArgs e);
         public event CaloriesExceededEventHandler CaloriesExceeded;
 
-        public void SetIngredients(int count) //Method thats sets the Ingredients of the Recipe!
+        public void SetIngredients(int count) //Method that sets the Ingredients of the Recipe!
         {
             ingredients = new List<IngredientClass>();
 
             for (int i = 0; i < count; i++)
             {
                 Console.WriteLine($"Input the Name of  the Ingredient {i + 1}:");
-                //Users enter the Name of the Ingredient  in Recipe Application!
+                //Users enter the Name of the Ingredient  in the Recipe Application!
                 string name = Console.ReadLine();
 
                 Console.WriteLine($"Input the Quantity of {name}:");
-                //How much is needed for the recipe process!
+                //How much is needed for the recipe process?
                 double quantity = GetValidDoubleInput();
 
                 Console.WriteLine($"Input the Unit of Measurement for {name}:");
@@ -41,7 +43,7 @@ namespace ST10038389_PROG6221___Part_2_of_POE
                 //Allows the User to enter the type of Food Group of the Ingredient!
                 string foodGroup = Console.ReadLine();
 
-                ingredients.Add(new IngredientClass //Creates a new Ingredient Class with Input details and assiging it to the arrayList.
+                ingredients.Add(new IngredientClass //Creates a new Ingredient Class with Input details and assigns it to the ArrayList.
                 {
                     Name = name,
                     Quantity = quantity,
@@ -52,7 +54,7 @@ namespace ST10038389_PROG6221___Part_2_of_POE
             }
         }
 
-        public void SetSteps(int count) //Method to clarify the steps of the count of user details.
+        public void SetSteps(int count) //Method to clarify the steps for counting user details.
         {
             steps = new List<RecipeSteps>();
 
@@ -66,10 +68,10 @@ namespace ST10038389_PROG6221___Part_2_of_POE
             }
         }
 
-        public void DisplayRecipeClass() //Method to display the Recipe Details of the Users in Application.
+        public void DisplayRecipeClass() //Method to display the Recipe Details of the Users in the Application.
         {
             if (ingredients == null || steps == null) //Checks if the Ingredients or Steps was set to NULL VALUE,
-                                                      //which determines 0 Recipe data has been collected!
+                                                      //, which determines that 0 Recipe data has been collected!
             {
                 Console.ForegroundColor = ConsoleColor.Red; //TextColor set to Red.
                 Console.WriteLine("ZERO RECIPES ADDED! Please add a recipe first!");
@@ -93,14 +95,14 @@ namespace ST10038389_PROG6221___Part_2_of_POE
 
             Console.WriteLine("Steps:");
 
-            for (int i = 0; i < steps.Count; i++) //Displays the steps for the recipe of the user entered details in application.
+            for (int i = 0; i < steps.Count; i++) //Displays the steps for the user's recipe entered details in the application.
             {
                 Console.WriteLine($"{i + 1}. {steps[i].Description}");
             }
 
             Console.ResetColor();
 
-            //Calculate and display total calories of the recipe added from user in application.
+            //Calculate and display the total calories of the recipe added by the user in the application.
             int totalCalories = CalculateTotalCalories();
             Console.WriteLine($"\nTotal Calories: {totalCalories}");
 
@@ -120,21 +122,21 @@ namespace ST10038389_PROG6221___Part_2_of_POE
                 return;
             }
 
-            foreach (var ingredient in ingredients) //Taking each Ingredients quantity to multiply it by a scaling factor.
+            foreach (var ingredient in ingredients) //Taking each Ingredient quantity to multiply it by a scaling factor.
             {
                 ingredient.Quantity *= factor;
             }
         }
 
         public void ClearRecipe()
-        //This Method removes the data from recipe.
-        //Allows the user to enter a new recipe with new data in.
+        //This Method removes the data from the recipe.
+        //Allows the user to enter a new recipe with new data.
         {
             ingredients = null;
             steps = null;
         }
 
-        private double GetValidDoubleInput() //Method to get a double input from the user entered details from application.
+        private double GetValidDoubleInput() //Method to get a double input from the user-entered details from the application.
         {
             while (true)
             {
@@ -163,7 +165,7 @@ namespace ST10038389_PROG6221___Part_2_of_POE
 
         private int CalculateTotalCalories() //Method 8:Calculates the total calories of a recipe.
         {
-            return ingredients.Sum(ingredient => ingredient.Calories); //Sums up all calories of all the Ingredients in the recipe.
+            return ingredients.Sum(ingredient => ingredient.Calories); //Sums up all calories of all the ingredients in the recipe.
         }
     }
 }

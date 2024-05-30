@@ -39,7 +39,14 @@ namespace ST10038389_PROG6221___Part_2_of_POE
 
                 try
                 {
+                    //<Summary>
                     // 5 Menu Option Selections of code structure.
+                    //Option 1: Add New Recipe!
+                    //Option 2: Showcase all Recipes been Added to the application!
+                    //Option 3: Scale the recipes that was recently added to the application!
+                    //Option 4: Deletes the recent recipes added and the new ones just created!
+                    //Option 5: Exits the Recipe Application and returns you as the programmer to Visual Studio!
+                    //</Summary>
                     switch (choice)
                     {
                         case "1":
